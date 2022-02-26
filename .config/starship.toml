@@ -1,0 +1,42 @@
+add_newline = false
+
+[line_break]
+disabled = true
+
+#[username]
+#style_user = "#ffb86c bold"
+#style_root = "#ff5555 bold"
+#format = " [$user]($style) "
+#disabled = false
+#show_always = true
+
+[aws]
+style = "bold #ffb86c"
+
+[character]
+error_symbol = "[❯](bold #ff5555)"
+success_symbol = "[❯](bold #f8f8f2)"
+
+[cmd_duration]
+style = "bold #f1fa8c"
+
+[directory]
+style = "bold #50fa7b"
+
+[git_branch]
+style = "bold #ff79c6"
+
+[git_status]
+style = "bold #ff5555"
+
+[hostname]
+style = "bold #8be9fd"
+disabled = false
+ssh_only = false
+format = "[$hostname]($style) ❯ "
+
+[username]
+format = "[$user]($style) "
+style_user = "bold #bd93f9"
+disabled = false
+show_always = true
