@@ -11,6 +11,7 @@ alias cf='vim ~/.config/fish/config.fish'
 alias po=poweroff
 alias sd=shutdown
 alias rb=reboot
+alias ex=exit
 
 starship init fish | source
 
