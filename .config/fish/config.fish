@@ -13,7 +13,5 @@ alias sd=shutdown
 alias rb=reboot
 alias ex=exit
 
-config status
-
 starship init fish | source
 
