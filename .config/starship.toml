@@ -43,7 +43,7 @@ disabled = false
 show_always = true
 
 [shell]
-disabled = false
+disabled = true
 fish_indicator = "fish"
 bash_indicator = "bash"
 style = "bold #ff79c6"
