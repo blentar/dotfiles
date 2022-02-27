@@ -16,6 +16,7 @@ style = "bold #ffb86c"
 [character]
 error_symbol = "[❯](bold #ff5555)"
 success_symbol = "[❯](bold #f8f8f2)"
+format = "$symbol "
 
 [cmd_duration]
 style = "bold #f1fa8c"
@@ -40,3 +41,10 @@ format = "[$user]($style) "
 style_user = "bold #bd93f9"
 disabled = false
 show_always = true
+
+[shell]
+disabled = false
+fish_indicator = "fish"
+bash_indicator = "bash"
+style = "bold #ff79c6"
+#format = "[$indicator]($style)"
