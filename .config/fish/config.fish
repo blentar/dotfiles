@@ -3,15 +3,17 @@ function fish_greeting
 end
 
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias cl=clear
-alias nf=neofetch
-alias ls=lsd
-alias cat=bat
+alias cl='clear'
+alias nf='neofetch'
+alias ls='lsd'
+alias cat='bat'
 alias cf='vim ~/.config/fish/config.fish'
-alias po=poweroff
-alias sd=shutdown
-alias rb=reboot
-alias ex=exit
+alias po='poweroff'
+alias sd='shutdown'
+alias rb='reboot'
+alias ex='exit'
+alias copy='wl-copy'
+alias paste='wl-paste'
 
 starship init fish | source
 
