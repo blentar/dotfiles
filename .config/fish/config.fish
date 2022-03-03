@@ -12,8 +12,11 @@ alias po='poweroff'
 alias sd='shutdown'
 alias rb='reboot'
 alias ex='exit'
+# wayland
 alias copy='wl-copy'
 alias paste='wl-paste'
+
+alias nightly='firefox-nightly'
 
 starship init fish | source
 
