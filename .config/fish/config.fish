@@ -11,7 +11,7 @@ alias cf='vim ~/.config/fish/config.fish'
 alias po='poweroff'
 alias sd='shutdown'
 alias rb='reboot'
-alias ex='exit'
+alias x='exit'
 # wayland
 alias copy='wl-copy'
 alias paste='wl-paste'
