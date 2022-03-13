@@ -1,11 +1,16 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
 
-### Variables
-#
+# Autostart
+
+# Notification Daemon
+exec swaync
+# Disk mounting
+exec udiskie --tray
+# KeepassXC
+exec keepassxc
+
+# Variables
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -13,54 +18,29 @@ set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+
 set $term kitty
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
+
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu wofi --show=drun
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg /home/dilan/git/dracula/wallpaper/base.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+# Gaps and no title 
+gaps inner 8
+default_border pixel 2
 
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+# Wallpaper
+# output * bg /home/dilan/git/dracula/wallpaper/base.png fill
+output * bg /home/dilan/System76-Wallpapers/robot.png fill
 
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+# Idle Config
+# Lock screen after 25 Minutes the turn off display after 30 Minutes
+# Also lock screen befoore sleep.
+exec swayidle -w \
+         timeout 1500 'swaylock -f -c 000000' \
+         timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 
-### Key bindings
+# Key bindings
 #
 # Basics:
 #
@@ -161,7 +141,10 @@ output * bg /home/dilan/git/dracula/wallpaper/base.png fill
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
-#
+
+    # Toggle swaync control center
+    bindsym $mod+Shift+n exec swaync-client -t -sw
+
 # Scratchpad:
 #
     # Sway has a "scratchpad", which is a bag of holding for windows.
@@ -207,25 +190,29 @@ client.placeholder	#282A36	#282A36	#F8F8F2	#282A36   #272A36
 
 client.background	#F8F8F2
 
-# Read `man 5 sway-bar` for more information about this section.
 bar {
-    POSITION top
+     swaybar_command waybar
+}
+
+# Read `man 5 sway-bar` for more information about this section.
+#bar {
+#    POSITION top
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#   status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
-    colors {
-	background #282A36
-	statusline #F8F8F2
-	separator  #44475A
-
-	focused_workspace  #44475A #44475A #F8F8F2
-	active_workspace   #282A36 #44475A #F8F8F2
-	active_workspace   #282A36 #44475A #F8F8F2
-	urgent_workspace   #FF5555 #FF5555 #F8F8F2
-	binding_mode       #FF5555 #FF5555 #F8F8F2
-    }
-}
-
+#    colors {
+#	background #282A36
+#	statusline #F8F8F2
+#	separator  #44475A
+#
+#	focused_workspace  #44475A #44475A #F8F8F2
+#	active_workspace   #282A36 #44475A #F8F8F2
+#	active_workspace   #282A36 #44475A #F8F8F2
+#	urgent_workspace   #FF5555 #FF5555 #F8F8F2
+#	binding_mode       #FF5555 #FF5555 #F8F8F2
+#    }
+#}
+#
 include /etc/sway/config.d/*

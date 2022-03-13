@@ -20,6 +20,8 @@ alias copy='wl-copy'
 alias paste='wl-paste'
 alias nightly='firefox-nightly'
 alias ls='lsd --color=auto'
+alias swayrc='vim ~/.config/sway/config'
+alias swaylock='swaylock -i ~/git/dracula/wallpaper/base.png'
 
 # PS1='[\u@h \W]\$ '
 
