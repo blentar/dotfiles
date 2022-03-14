@@ -11,6 +11,8 @@ exec keepassxc
 
 # Variables
 
+set $lock swaylock -i ~/System76-Wallpapers/robot.png
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -30,15 +32,15 @@ default_border pixel 2
 
 # Wallpaper
 # output * bg /home/dilan/git/dracula/wallpaper/base.png fill
-output * bg /home/dilan/System76-Wallpapers/robot.png fill
+output * bg ~/System76-Wallpapers/robot.png fill
 
 # Idle Config
 # Lock screen after 25 Minutes the turn off display after 30 Minutes
 # Also lock screen befoore sleep.
 exec swayidle -w \
-         timeout 1500 'swaylock -f -c 000000' \
+         timeout 1500 '$lock -f -c 000000' \
          timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep '$lock -f -c 000000'
 
 # Key bindings
 #
