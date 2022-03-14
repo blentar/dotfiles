@@ -1,14 +1,5 @@
 # Read `man 5 sway` for a complete reference.
 
-# Autostart
-
-# Notification Daemon
-exec swaync
-# Disk mounting
-exec udiskie --tray
-# KeepassXC
-exec keepassxc
-
 # Variables
 
 set $lock swaylock -i ~/System76-Wallpapers/robot.png
@@ -31,8 +22,7 @@ gaps inner 8
 default_border pixel 2
 
 # Wallpaper
-# output * bg /home/dilan/git/dracula/wallpaper/base.png fill
-output * bg ~/System76-Wallpapers/robot.png fill
+exec swaybg -i ~/System76-Wallpapers/robot.png
 
 # Idle Config
 # Lock screen after 25 Minutes the turn off display after 30 Minutes
@@ -196,25 +186,14 @@ bar {
      swaybar_command waybar
 }
 
-# Read `man 5 sway-bar` for more information about this section.
-#bar {
-#    POSITION top
+# Autostart
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-#   status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+# Notification Daemon
+exec swaync
+# Disk Mounter
+exec udiskie --tray
+# Password Manager
+exec keepassxc
 
-#    colors {
-#	background #282A36
-#	statusline #F8F8F2
-#	separator  #44475A
-#
-#	focused_workspace  #44475A #44475A #F8F8F2
-#	active_workspace   #282A36 #44475A #F8F8F2
-#	active_workspace   #282A36 #44475A #F8F8F2
-#	urgent_workspace   #FF5555 #FF5555 #F8F8F2
-#	binding_mode       #FF5555 #FF5555 #F8F8F2
-#    }
-#}
-#
+
 include /etc/sway/config.d/*
