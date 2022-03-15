@@ -2,6 +2,7 @@
 
 # Variables
 
+# Swaylock + Wallpaper
 set $lock swaylock -i ~/System76-Wallpapers/robot.png
 
 # Logo key. Use Mod1 for Alt.
@@ -12,7 +13,11 @@ set $down j
 set $up k
 set $right l
 
+# Preferred Applications
 set $term kitty
+set $fm dolphin
+set $web firefox-nightly
+set $passmgr keepassxc
 
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu wofi --show=drun
@@ -36,6 +41,12 @@ exec swayidle -w \
 #
 # Basics:
 #
+
+    # Start a file manager
+    bindsym $mod+z exec $fm
+    # Start a browser
+    bindsym $mod+t exec $web
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -43,7 +54,12 @@ exec swayidle -w \
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+p exec $menu
+
+    # Volume Controls
+    bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +2
+    bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -2
+    bindsym XF86AudioMute exec pulsemixer --toggle-mute
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
