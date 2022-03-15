@@ -13,11 +13,7 @@ set $down j
 set $up k
 set $right l
 
-# Preferred Applications
 set $term kitty
-set $fm dolphin
-set $web firefox-nightly
-set $passmgr keepassxc
 
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu wofi --show=drun
@@ -41,12 +37,6 @@ exec swayidle -w \
 #
 # Basics:
 #
-
-    # Start a file manager
-    bindsym $mod+z exec $fm
-    # Start a browser
-    bindsym $mod+t exec $web
-
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -70,6 +60,9 @@ exec swayidle -w \
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
+
+    # Start wlogout
+    bindsym $mod+Shift+Escape exec wlogout
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -210,6 +203,7 @@ exec swaync
 exec udiskie --tray
 # Password Manager
 exec keepassxc
-
+# NetworkManager applet
+exec --no-startup-id 'nm-applet --indicator'
 
 include /etc/sway/config.d/*
