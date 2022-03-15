@@ -70,6 +70,7 @@ window#waybar.chromium {
     border-bottom: 3px solid #ffffff;
 }
 
+#custom-power,
 #clock,
 #battery,
 #cpu,
@@ -102,6 +103,11 @@ window#waybar.chromium {
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
+}
+
+#custom-power {
+    background-color: #ff5555;
+    color: #f8f8f2;
 }
 
 #clock {

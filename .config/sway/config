@@ -201,8 +201,6 @@ bar {
 exec swaync
 # Disk Mounter
 exec udiskie --tray
-# Password Manager
-exec keepassxc
 # NetworkManager applet
 exec --no-startup-id 'nm-applet --indicator'
 
