@@ -2,7 +2,7 @@
 paleofetch
 
 # Autocomplete
-#source ~/.config/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source ~/.config/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # AutoSuggestions
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -17,11 +17,11 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
 # Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
+#autoload -U compinit
+#zstyle ':completion:*' menu select
+#zmodload zsh/complist
+#compinit
+#_comp_options+=(globdots)		# Include hidden files.
 
 # vi mode
 bindkey -v
