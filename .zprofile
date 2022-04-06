@@ -7,4 +7,4 @@ export MOZ_ENABLE_WAYLAND=1 firefox
 
 ##- Clean-Up -##
 export KDEHOME="$XDG_CONFIG_HOME"/kde
-
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
