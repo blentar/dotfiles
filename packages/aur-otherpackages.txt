@@ -1,3 +1,0 @@
-firefox-nightly
-nerd-fonts-mononoki
-yay

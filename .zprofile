@@ -1,5 +1,5 @@
 #- Environment Variables -#
-export PATH="$PATH:/home/dilan/.local/bin"
+export PATH="$PATH:/home/dilan/.local/bin:/home/dilan/.emacs.d/bin/"
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
