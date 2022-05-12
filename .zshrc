@@ -1,11 +1,14 @@
 # Faster Neofetch
-paleofetch
+fastfetch
+
+# Dracula Theme
+# source /home/dilan/repos/dracula-zsh/dracula.zsh-theme
 
 # Autocomplete
-source ~/.config/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source ~/.config/zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # AutoSuggestions
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Enable colors and change prompt:
 autoload -U colors && colors
@@ -76,5 +79,5 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # Load zsh-syntax-highlighting; should be last.
-source /home/dilan/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /home/dilan/.config/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 eval "$(starship init zsh)"

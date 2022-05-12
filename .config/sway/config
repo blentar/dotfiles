@@ -3,7 +3,7 @@
 # Variables
 
 # Swaylock + Wallpaper
-set $lock swaylock -i ~/System76-Wallpapers/robot.png
+set $lock swaylock -i ~/Pictures/penguins-wallpaper.jpg
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -23,7 +23,7 @@ gaps inner 8
 default_border pixel 2
 
 # Wallpaper
-exec swaybg -i ~/System76-Wallpapers/robot.png
+exec swaybg -i ~/Pictures/penguins-wallpaper.jpg
 
 # Idle Config
 # Lock screen after 25 Minutes the turn off display after 30 Minutes
@@ -202,10 +202,12 @@ bar {
 # Autostart
 
 # Notification Daemon
-exec swaync
+# exec swaync
 # Disk Mounter
 exec udiskie --tray
 # NetworkManager applet
 exec --no-startup-id 'nm-applet --indicator'
+# LxSession
+exec lxsession
 
 include /etc/sway/config.d/*
