@@ -3,4 +3,6 @@ udiskie
 nitrogen
 picom
 network-manager-applet
-xfce4-session
+lxsession
+lxappearance
+volumeicon
