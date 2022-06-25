@@ -47,7 +47,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.config/zsh-plu
 echo "Pulling Dotfiles..."
 echo ".dotfiles" >> ~/.gitignore
 git clone --bare https://github.com/blentar/dotfiles $HOME/.dotfiles
-[ -f "$HOME/.bashrc" ] && echo "HISTFILE="$HOME/.cache/bash/history"" >> .bashrc && mv .bashrc .bashrc-backup
+[ -f "$HOME/.bashrc" ] && echo "HISTFILE="$HOME/.cache/bash/history"" >> .bashrc
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
 chsh -s /bin/zsh
