@@ -99,6 +99,7 @@ alias cl='clear'
 alias x='exit'
 alias vim='nvim'
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
+alias wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts""
 
 # History in cache directory:
 HISTSIZE=10000
