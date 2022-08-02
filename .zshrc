@@ -27,8 +27,8 @@ alias vim='nvim'
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts""
 alias ls="ls --color=auto"
-alias sudo="doas"
-alias apt="nala"
+#alias sudo="doas"
+#alias apt="nala"
 
 # Source plugins.
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

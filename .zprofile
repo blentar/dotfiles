@@ -12,7 +12,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state/"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-export ZDOTDIR="$HOME"/.config/zsh
+#export ZDOTDIR="$HOME"/.config/zsh
 
 export GOPATH="$XDG_DATA_HOME"/go
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
