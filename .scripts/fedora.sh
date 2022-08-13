@@ -8,7 +8,7 @@ defaultyes=True
 keepcache=True" | sudo tee -a /etc/dnf/dnf.conf
 
 mkdir ~/.cache/{zsh,bash}
-echo "HISTFILE=~/.cache/bash/history"
+echo "HISTFILE=~/.cache/bash/history" >> .bashrc
 [ -f "$HOME/.bash_history" ] && mv ~/.bash_history ~/.cache/bash/history
 
 sudo dnf update
@@ -21,6 +21,9 @@ sudo dnf groupupdate sound-and-video
 
 sudo flatpak remote-delete flathub
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+sudo dnf copr enable shrisha/gnome-shell-mutter-tripplebuffered-41
+sudo dnf update
 
 echo ".dotfiles" >> .gitignore
 git clone --bare https://github.com/blentar/dotfiles .dotfiles
