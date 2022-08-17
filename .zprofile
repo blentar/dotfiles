@@ -1,4 +1,4 @@
-export EDITOR="micro"
+export EDITOR="nvim"
 export PATH="$PATH:/home/dilan/.local/bin"
 export MOZ_ENABLE_WAYLAND=1 firefox
 

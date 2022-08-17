@@ -2,6 +2,9 @@
 # Plugins That need to be on top.
 #source ~/.config/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
+# Delete .sudo_as_admin_succesful if existent (ubuntu problem)
+[ -f "$HOME/.sudo_as_admin_successful" ] && rm "$HOME/.sudo_as_admin_successful"
+
 # Enable colors and change prompt:
 autoload -U colors && colors
 PS1="%B%{$fg[green]%}[%{$fg[yellow]%}%n%{$fg[blue]%}@%{$fg[cyan]%}%M %{$fg[magenta]%}%~%{$fg[green]%}]%{$reset_color%}$%b "
