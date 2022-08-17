@@ -1,8 +1,8 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
   # Import additional configuration files
-#import:
-#  - /path/to/alacritty.yml
+import:
+  - ~/.config/alacritty/gruvbox.yml
 
   # Environment Variables (will overwrite existing variables)
 #env:
@@ -862,3 +862,4 @@ font:
 
   # Print all received window events.
   #print_events: false
+
