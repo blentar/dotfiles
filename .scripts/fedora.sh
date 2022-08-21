@@ -11,7 +11,7 @@ echo "HISTFILE=~/.cache/bash/history" >> .bashrc
 [ -f "$HOME/.bash_history" ] && mv ~/.bash_history ~/.cache/bash/history
 
 sudo dnf update
-sudo dnf install util-linux alacritty zsh neovim wl-clipboard mozilla-fira-sans-fonts mozilla-fira-fonts-common fira-code-fonts gnome-tweaks
+sudo dnf install util-linux-user yaru-theme alacritty zsh neovim wl-clipboard mozilla-fira-sans-fonts papirus-icon-theme mozilla-fira-fonts-common fira-code-fonts gnome-tweaks
 
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf groupupdate core
@@ -28,6 +28,11 @@ sudo dnf update
 
 sudo dnf copr enable nickavem/adw-gtk3
 sudo dnf install adw-gtk3
+
+mkdir -p ~/gitstuff/zsh-plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/gitstuff/zsh-plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/gitstuff/zsh-plugins/zsh-syntax-highlighting
+git clone https://github.com/marlonrichert/zsh-autocomplete ~/gitstuff/zsh-plugins/zsh-autocomplete
 
 echo ".dotfiles" >> .gitignore
 git clone --bare https://github.com/blentar/dotfiles .dotfiles

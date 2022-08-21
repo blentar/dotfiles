@@ -1,6 +1,6 @@
 
 # Plugins That need to be on top.
-#source ~/.config/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+#source ~/gitstuff/zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Delete .sudo_as_admin_succesful if existent (ubuntu problem)
 [ -f "$HOME/.sudo_as_admin_successful" ] && rm "$HOME/.sudo_as_admin_successful"
