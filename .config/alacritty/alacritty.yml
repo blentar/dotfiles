@@ -2,7 +2,7 @@
 
   # Import additional configuration files
 import:
-  - ~/.config/alacritty/gruvbox.yml
+#  - ~/.config/alacritty/gruvbox.yml
 
   # Environment Variables (will overwrite existing variables)
 #env:
