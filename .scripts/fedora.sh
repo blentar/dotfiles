@@ -11,7 +11,7 @@ echo "HISTFILE=~/.cache/bash/history" >> .bashrc
 [ -f "$HOME/.bash_history" ] && mv ~/.bash_history ~/.cache/bash/history
 
 sudo dnf update
-sudo dnf install gh util-linux-user papirus-icon-theme alacritty zsh neovim wl-clipboard mozilla-fira-sans-fonts papirus-icon-theme gnome-tweaks
+sudo dnf install gh util-linux-user alacritty zsh neovim wl-clipboard mozilla-fira-sans-fonts papirus-icon-theme gnome-tweaks
 
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf groupupdate core
