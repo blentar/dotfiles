@@ -13,8 +13,11 @@ zstyle ':z4h:' auto-update-days '28'
 # Keyboard type: 'mac' or 'pc'.
 zstyle ':z4h:bindkey' keyboard  'pc'
 
-# Don't start tmux.
-zstyle ':z4h:' start-tmux       no
+# Start tmux if not already in tmux.
+#zstyle ':z4h:' start-tmux       command tmux -u new -A -D -t z4h
+
+# no tmux
+zstyle ':z4h:' start-tmux	no
 
 # Mark up shell's output with semantic information.
 zstyle ':z4h:' term-shell-integration 'yes'
@@ -47,7 +50,7 @@ zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
 # This doesn't do anything apart from cloning the repository and keeping it
 # up-to-date. Cloned files can be used after `z4h init`. This is just an
 # example. If you don't plan to use Oh My Zsh, delete this line.
-#z4h install ohmyzsh/ohmyzsh || return
+z4h install ohmyzsh/ohmyzsh || return
 
 # Install or update core components (fzf, zsh-autosuggestions, etc.) and
 # initialize Zsh. After this point console I/O is unavailable until Zsh
@@ -67,8 +70,8 @@ z4h source ~/.env.zsh
 # Use additional Git repositories pulled in with `z4h install`.
 #
 # This is just an example that you should delete. It does nothing useful.
-#z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
-#z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
+z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
+z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
 
 # Define key bindings.
 z4h bindkey z4h-backward-kill-word  Ctrl+Backspace     Ctrl+H
@@ -105,6 +108,9 @@ alias vim='nvim'
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts""
 alias ls="ls --color=auto"
+
+# Add flags to existing aliases.
+alias ls="${aliases[ls]:-ls} -A"
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
