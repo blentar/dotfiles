@@ -1,39 +1,52 @@
 #! /bin/sh
 
+# noob dont judge
+
 # bash -c "$(wget -qO https://raw.githubusercontent.com/blentar/dotfiles/master/.scripts/fedora.sh"
 
+echo "You have to give me root privileges first."
+[ "$UID" -eq 0 ] || exec sudo "$0" "$@"
+echo "Thank You!"
+
+echo "Adding options to DNF config . . ."
 echo "max_parallel_downloads=3
 defaultyes=True
-keepcache=True" | sudo tee -a /etc/dnf/dnf.conf >> /dev/null
+keepcache=True" >> /etc/dnf/dnf.conf
+#keepcache=True" | sudo tee -a /etc/dnf/dnf.conf >> /dev/null
 
+echo "Moving bash history file (maybe) . . ."
 mkdir ~/.cache/{zsh,bash}
 echo "HISTFILE=~/.cache/bash/history" >> .bashrc
 [ -f "$HOME/.bash_history" ] && mv ~/.bash_history ~/.cache/bash/history
 
-sudo dnf update
-sudo dnf install gh util-linux-user alacritty zsh neovim wl-clipboard mozilla-fira-sans-fonts papirus-icon-theme gnome-tweaks
+echo "Updating and Installing some packages . . ."
+dnf update -y
+dnf install gh util-linux-user zsh neovim wl-clipboard gnome-tweaks -y
 
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf groupupdate core
-sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-sudo dnf groupupdate sound-and-video
+echo "Adding RPM Fusion . . ."
+dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+dnf groupupdate core -y
+dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
+dnf groupupdate sound-and-video -y
 
+echo "Adding real Flathub . . ."
 flatpak remote-delete flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-flatpak install extensionmanager polymc
+echo "Installing Flatpaks . . ."
+flatpak install com.mattjakeman.ExtensionManager org.prismlauncher.PrismLauncher
 
-sudo dnf copr enable shrisha/gnome-shell-mutter-tripplebuffered-41
-sudo dnf update
+echo "Adding a calcastor/gnome-patched COPR repo for dynamic buffering . . ."
+dnf copr enable calcastor/gnome-patched
+dnf update
 
-sudo dnf copr enable nickavem/adw-gtk3
-sudo dnf install adw-gtk3
+echo "Installing adw-gtk3 . . ."
+dnf copr enable nickavem/adw-gtk3
+dnf install adw-gtk3
+gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
+gsettings set org.gnome.desktop.wm.preferences theme "adw-gtk3-dark"
 
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip 
-unzip ~/Downloads/JetBrainsMono.zip -d ~/Downloads/JetBrainsMono/
-sudo cp ~/Downloads/JetBrainsMono/* /usr/share/fonts/
-fc-cache -fv
-
+echo "Adding dotfiles . . ."
 echo ".dotfiles" >> .gitignore
 git clone --bare https://github.com/blentar/dotfiles .dotfiles
 git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" checkout

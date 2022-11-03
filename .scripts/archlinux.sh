@@ -1,19 +1,21 @@
 #! /bin/sh
 
+# noob don't judge
+
 # bash -c "$(wget -qO https://raw.githubusercontent.com/blentar/dotfiles/master/.scripts/archlinux.sh"
 
 while true; do
     read -p "Are you using GNOME? [y/n] " yn
     case $yn in
         [Yy]* ) break;;
-        [Nn]* ) echo "Wrong script"; exit;;
+        [Nn]* ) echo "Not a good idea."; exit;;
         * ) echo "Please answer yes or no.";;
     esac
 done
 
-echo "Give me root priveleges"
+echo "You have to give me root privileges first."
 [ "$UID" -eq 0 ] || exec sudo "$0" "$@"
-echo "Thank you"
+echo "Thank You!"
 
 echo "You gotta edit the pacman.conf by yourself im still a noob"
 sleep 1
@@ -25,22 +27,21 @@ echo 2
 sleep 1
 echo 1
 sleep 1
-nvim /etc/pacman.conf 
+nano /etc/pacman.conf 
 
+echo "Moving bash history file (maybe) . . ."
 mkdir ~/.cache/{zsh,bash}
 echo "HISTFILE=~/.cache/bash/history" >> .bashrc
 [ -f "$HOME/.bash_history" ] && mv ~/.bash_history ~/.cache/bash/history
 
+echo "Updating and Installing some packages . . ."
 pacman -Syu --no-confirm
-pacman -S --needed --no-confirm github-cli flatpak papirus-icon-theme alacritty zsh neovim wl-clipboard xclip mozilla-fira-sans-fonts papirus-icon-theme gnome-tweaks
+pacman -S --needed --no-confirm git github-cli flatpak zsh neovim wl-clipboard gnome-tweaks
 
+echo "Installing Flatpaks . . ."
 flatpak install extensionmanager polymc
 
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip 
-unzip ~/Downloads/JetBrainsMono.zip -d ~/Downloads/JetBrainsMono/
-sudo cp ~/Downloads/JetBrainsMono/* /usr/share/fonts/
-fc-cache -fv
-
+echo "Getting dotfiles . . ."
 echo ".dotfiles" >> .gitignore
 git clone --bare https://github.com/blentar/dotfiles .dotfiles
 git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" checkout
