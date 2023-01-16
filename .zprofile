@@ -1,5 +1,5 @@
 export EDITOR="nvim"
-export PATH="$PATH:/home/dilan/.local/bin"
+export PATH="$PATH:/home/dilan/.local/bin:/home/dilan/.emacs.d/bin"
 export MOZ_ENABLE_WAYLAND=1 firefox
 
 if [[ $XDG_SESSION_DESKTOP != "KDE" ]]; then
