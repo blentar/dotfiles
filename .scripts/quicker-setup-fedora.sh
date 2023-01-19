@@ -38,8 +38,6 @@ sudo dnf update
 echo "Installing adw-gtk3 . . ."
 sudo dnf copr enable nickavem/adw-gtk3
 sudo dnf install adw-gtk3
-gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
-gsettings set org.gnome.desktop.wm.preferences theme "adw-gtk3-dark"
 
 echo "Adding dotfiles . . ."
 echo ".dotfiles" >> .gitignore

@@ -2,7 +2,7 @@
 
 # noob don't judge
 
-# bash -c "$(wget -qO https://raw.githubusercontent.com/blentar/dotfiles/master/.scripts/archlinux.sh"
+# bash -c "$(wget -qO https://raw.githubusercontent.com/blentar/dotfiles/master/.scripts/quicker-setup-arch.sh"
 
 while true; do
     read -p "Are you using GNOME? [y/n] " yn
@@ -36,10 +36,22 @@ echo "HISTFILE=~/.cache/bash/history" >> .bashrc
 
 echo "Updating and Installing some packages . . ."
 pacman -Syu --no-confirm
-pacman -S --needed --no-confirm git github-cli flatpak zsh neovim wl-clipboard gnome-tweaks
+pacman -S --needed --no-confirm git github-cli flatpak zsh neovim wl-clipboard gnome-tweaks base-devel
 
 echo "Installing Flatpaks . . ."
-flatpak install extensionmanager polymc
+flatpak install com.mattjakeman.ExtensionManager com.raggesilver.BlackBox org.prismlauncher.PrismLauncher
+
+echo "Installing Paru(AUR) . . ."
+mkdir Git
+cd Git
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+cd
+
+echo "Installing AUR packages . . ."
+paru -Syu
+paru -S mkinitcpio-firmware adw-gtk3
 
 echo "Getting dotfiles . . ."
 echo ".dotfiles" >> .gitignore
