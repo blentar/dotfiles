@@ -16,7 +16,7 @@ echo "HISTFILE=~/.cache/bash/history" >> .bashrc
 
 echo "Updating and Installing some packages . . ."
 sudo dnf update -y
-sudo dnf install gh util-linux-user zsh neovim wl-clipboard gnome-tweaks -y
+sudo dnf install gh util-linux-user cowsay fortune-mod zsh neovim wl-clipboard gnome-tweaks -y
 
 echo "Adding RPM Fusion . . ."
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y

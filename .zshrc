@@ -109,6 +109,9 @@ alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts""
 alias ls="ls --color=auto"
 
+# Cowsay with fortune
+cowthink $(fortune)
+
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu

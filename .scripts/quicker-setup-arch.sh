@@ -36,7 +36,7 @@ echo "HISTFILE=~/.cache/bash/history" >> .bashrc
 
 echo "Updating and Installing some packages . . ."
 pacman -Syu --no-confirm
-pacman -S --needed --no-confirm git github-cli flatpak zsh neovim wl-clipboard gnome-tweaks base-devel
+pacman -S --needed --no-confirm cowsay fortune-mod git github-cli flatpak zsh neovim wl-clipboard gnome-tweaks base-devel
 
 echo "Installing Flatpaks . . ."
 flatpak install com.mattjakeman.ExtensionManager com.raggesilver.BlackBox org.prismlauncher.PrismLauncher
