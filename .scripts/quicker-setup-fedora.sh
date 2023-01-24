@@ -39,6 +39,12 @@ echo "Installing adw-gtk3 . . ."
 sudo dnf copr enable nickavem/adw-gtk3
 sudo dnf install adw-gtk3
 
+echo "Cloning ZSH plugins"
+mkdir ~/.config/zsh
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.config/zsh/plugins/fast-syntax-highlighting
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/zsh/plugins/fzf
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k
+
 echo "Adding dotfiles . . ."
 echo ".dotfiles" >> .gitignore
 git clone --bare https://github.com/blentar/dotfiles .dotfiles

@@ -26,4 +26,3 @@ export GOPATH="$XDG_DATA_HOME"/go
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
-. "$HOME/.cargo/env"
