@@ -32,8 +32,8 @@ alias ll='lsd -Avl --group-directories-first'
 # Auto/tab completions using fzf
 autoload -U compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
-
 source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+fpath=(~/.config/zsh/plugins/zsh-completions/src $fpath)
 
 # vi mode
 bindkey -v

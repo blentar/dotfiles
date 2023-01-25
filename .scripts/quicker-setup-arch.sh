@@ -59,8 +59,11 @@ git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.confi
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k
 git clone https://github.com/zsh-users/zsh-history-substring-search ~/.config/zsh/plugins/zsh-history-substring-search
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
+git clone https://github.com/Aloxaf/fzf-tab ~/.config/zsh/plugins/fzf-tab
+git clone https://github.com/zsh-users/zsh-completions ~/.config/zsh/plugins/zsh-completions
 
 echo "Install fzf with git . . ."
+mkdir -p ~/.config/fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/zsh/plugins/fzf
 ~/.config/zsh/plugins/fzf
 
