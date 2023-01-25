@@ -16,7 +16,7 @@ echo "HISTFILE=~/.cache/bash/history" >> .bashrc
 
 echo "Updating and Installing some packages . . ."
 sudo dnf update -y
-sudo dnf install lsd gh util-linux-user cowsay fortune-mod zsh neovim wl-clipboard gnome-tweaks -y
+sudo dnf install fd-find lsd gh util-linux-user cowsay fortune-mod zsh neovim wl-clipboard gnome-tweaks -y
 
 echo "Adding RPM Fusion . . ."
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
@@ -39,13 +39,16 @@ echo "Installing adw-gtk3 . . ."
 sudo dnf copr enable nickavem/adw-gtk3
 sudo dnf install adw-gtk3
 
-echo "Cloning ZSH plugins"
+echo "Cloning ZSH plugins . . ."
 mkdir -p ~/.config/zsh
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.config/zsh/plugins/fast-syntax-highlighting
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/zsh/plugins/fzf
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k
 git clone https://github.com/zsh-users/zsh-history-substring-search ~/.config/zsh/plugins/zsh-history-substring-search
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
+
+echo "Installing fzf with git . . ."
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/zsh/plugins/fzf
+~/.config/zsh/plugins/fzf/install --xdg --no-bash --no-zsh --no-fish
 
 echo "Adding dotfiles . . ."
 mkdir -p ~/.config/git

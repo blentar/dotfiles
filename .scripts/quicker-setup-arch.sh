@@ -36,7 +36,7 @@ echo "HISTFILE=~/.cache/bash/history" >> .bashrc
 
 echo "Updating and Installing some packages . . ."
 pacman -Syu --no-confirm
-pacman -S --needed --no-confirm cowsay fortune-mod git github-cli flatpak zsh neovim wl-clipboard gnome-tweaks base-devel
+pacman -S --needed --no-confirm lsd fzf cowsay fortune-mod git github-cli flatpak zsh neovim wl-clipboard gnome-tweaks base-devel
 
 echo "Installing Flatpaks . . ."
 flatpak install com.mattjakeman.ExtensionManager com.raggesilver.BlackBox org.prismlauncher.PrismLauncher
@@ -53,13 +53,16 @@ echo "Installing AUR packages . . ."
 paru -Syu
 paru -S mkinitcpio-firmware adw-gtk3
 
-echo "Cloning ZSH plugins"
+echo "Cloning ZSH plugins . . ."
 mkdir -p ~/.config/zsh
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.config/zsh/plugins/fast-syntax-highlighting
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/zsh/plugins/fzf
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k
 git clone https://github.com/zsh-users/zsh-history-substring-search ~/.config/zsh/plugins/zsh-history-substring-search
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
+
+echo "Install fzf with git . . ."
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/zsh/plugins/fzf
+~/.config/zsh/plugins/fzf
 
 echo "Getting dotfiles . . ."
 mkdir -p ~/.config/git

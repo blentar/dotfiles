@@ -1,4 +1,4 @@
-stty stop undef # Disable ctrl-s to freeze terminal
+#stty stop undef # Disable ctrl-s to freeze terminal
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -29,23 +29,15 @@ alias wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts""
 alias ls='lsd -Av --group-directories-first'
 alias ll='lsd -Avl --group-directories-first'
 
-# Basic auto/tab complete:
+# Auto/tab completions using fzf
 autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
-_comp_options+=(globdots)		# Include hidden files.
+
+source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
-
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
@@ -105,4 +97,8 @@ source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.p
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ${ZDOTDIR:-~}/.p10k.zsh ]] || source ${ZDOTDIR:-~}/.p10k.zsh
+
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
