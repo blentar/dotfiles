@@ -62,14 +62,14 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ~/.config/zs
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
 
 echo "Getting dotfiles . . ."
-echo ".dotfiles" >> .gitignore
+mkdir -p ~/.config/git
+echo ".dotfiles" >> ~/.config/git/ignore
 git clone --bare https://github.com/blentar/dotfiles .dotfiles
 git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" checkout
 git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" config --local status.showUntrackedFiles no
 
 git config --global user.name "blentar"
 git config --global user.email "dilan@sus"
-mkdir -p ~/.config/git
 mv ~/.gitconfig $XDG_CONFIG_HOME/git/config
 
 chsh -s /bin/zsh

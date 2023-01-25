@@ -16,7 +16,7 @@ echo "HISTFILE=~/.cache/bash/history" >> .bashrc
 
 echo "Updating and Installing some packages . . ."
 sudo dnf update -y
-sudo dnf install gh util-linux-user cowsay fortune-mod zsh neovim wl-clipboard gnome-tweaks -y
+sudo dnf install lsd gh util-linux-user cowsay fortune-mod zsh neovim wl-clipboard gnome-tweaks -y
 
 echo "Adding RPM Fusion . . ."
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
@@ -48,14 +48,14 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ~/.config/zs
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
 
 echo "Adding dotfiles . . ."
-echo ".dotfiles" >> .gitignore
+mkdir -p ~/.config/git
+echo ".dotfiles" >> ~/.config/git/ignore
 git clone --bare https://github.com/blentar/dotfiles .dotfiles
 git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" checkout
 git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" config --local status.showUntrackedFiles no
 
 git config --global user.name "blentar"
 git config --global user.email "dilan@sus"
-mkdir -p ~/.config/git
 mv ~/.gitconfig $XDG_CONFIG_HOME/git/config 
 
 chsh -s /bin/zsh

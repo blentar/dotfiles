@@ -26,7 +26,8 @@ alias cl='clear'
 alias x='exit'
 alias vim='nvim'
 alias wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts""
-alias ls='ls --color=auto'
+alias ls='lsd -Av --group-directories-first'
+alias ll='lsd -Avl --group-directories-first'
 
 # Basic auto/tab complete:
 autoload -U compinit
