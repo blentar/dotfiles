@@ -18,6 +18,8 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 source "$XDG_DATA_HOME"/cargo/env
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+
 export GOPATH="$XDG_DATA_HOME"/go
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export TERMINFO="$XDG_DATA_HOME"/terminfo
