@@ -47,11 +47,19 @@ cd Git
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
-cd
+cd ~
 
 echo "Installing AUR packages . . ."
 paru -Syu
 paru -S mkinitcpio-firmware adw-gtk3
+
+echo "Cloning ZSH plugins"
+mkdir -p ~/.config/zsh
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.config/zsh/plugins/fast-syntax-highlighting
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/zsh/plugins/fzf
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k
+git clone https://github.com/zsh-users/zsh-history-substring-search ~/.config/zsh/plugins/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
 
 echo "Getting dotfiles . . ."
 echo ".dotfiles" >> .gitignore
@@ -61,5 +69,7 @@ git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" config --local status.show
 
 git config --global user.name "blentar"
 git config --global user.email "dilan@sus"
+mkdir -p ~/.config/git
+mv ~/.gitconfig $XDG_CONFIG_HOME/git/config
 
 chsh -s /bin/zsh
