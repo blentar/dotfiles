@@ -28,6 +28,8 @@ if [ -f ~/.cache/quicker-setup-ran ] ; then
 	exit 1
 else continue ; fi
 
+retry_command hostnamectl set-hostname fedora
+
 echo -e "\033[1;33m	Warning: This script is only intended for myself, if you are not me\n	I do not recommend using this or any of my dotfiles as most of\n	aren't very good and some are unfinished."
 echo -en "Continue (don't if you're not me)? [y/n] "
 read -p yn
