@@ -59,7 +59,7 @@ else echo -e "\033[1;36m	.bashrc not found at home, skipping . . .\033[0;35m" ; 
 echo -e "\033[1;34m	Updating . . .\033[0;35m"
 retry_command sudo dnf update -y
 echo -e "\033[1;34m	Installing useful stuff . . .\033[0;35m"
-retry_command sudo dnf install fd-find lsd gh util-linux-user cowsay fortune-mod zsh neovim wl-clipboard gnome-tweaks -y
+retry_command sudo dnf install g++ fd-find lsd gh util-linux-user cowsay fortune-mod zsh neovim wl-clipboard gnome-tweaks -y
 
 echo -e "\033[1;34m	Adding RPM Fusion . . .\033[0;35m"
 retry_command sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
