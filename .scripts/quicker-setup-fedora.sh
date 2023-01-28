@@ -23,6 +23,19 @@ retry_command() {
 	done
 }
 
+if [ -f ~/.cache/quicker-setup-ran ] ; then
+	echo -e "\033[1;31m	Script has already been ran, don't know how much it can\n	break things if ran again.\033[0m"
+	exit 1
+else continue ; fi
+
+echo -e "\033[1;33m	Warning: This script is only intended for myself, if you are not me\n	I do not recommend using this or any of my dotfiles as most of\n	aren't very good and some are unfinished."
+echo -en "Continue (don't if you're not me)? [y/n] "
+read -p yn
+case $yn in
+	[Yy]* ) echo "\033[1;33m	Proceed with caution.\033[0;35m"; continue;;
+	[Nn]* ) echo "\033[1;31m	Exiting..."; exit 1;;
+esac
+
 echo -e "\033[1;34m	Adding options to DNF config . . .\033[0;35m"
 echo "max_parallel_downloads=3
 defaultyes=True
@@ -97,3 +110,5 @@ retry_command git config --global user.email "dilan@sus"
 retry_command mv ~/.gitconfig $XDG_CONFIG_HOME/git/config 
 
 retry_command chsh -s /bin/zsh
+
+touch ~/.cache/quicker-setup-ran
