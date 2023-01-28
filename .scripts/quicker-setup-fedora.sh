@@ -1,67 +1,99 @@
 #! /bin/sh
 
-# noob dont judge
+# DISCLAIMER: Don't use this script, I don't recommend using my dotfiles, use someone
+# else's as mine are not very good and a lot of my configs are unfinished.
 
-# bash -c "$(wget -qO https://raw.githubusercontent.com/blentar/dotfiles/master/.scripts/fedora.sh"
+# wget https://raw.githubusercontent.com/blentar/dotfiles/master/.scripts/quicker-setup-fedora.sh && chmod +x quicker-setup-fedora.sh && ./quicker-setup-fedora.sh
 
-echo "Adding options to DNF config . . ."
+retry_command() {
+	while true; do
+		"$@"
+		if [ $? -eq 0 ]; then 
+			echo -e "\033[1;33m	Done.\033[0;35m"
+			return
+		fi
+			
+		echo -en "\033[1;33m	Command Failed, Try Again or Skip? [y/s/n] \033[0;35m"
+		read -p ysn
+		case $ysn in
+			[Yy]* ) echo "\033[0;35m	Retrying . . ."; continue;;
+			[Ss]* ) echo "\033[0;33m	Skipping . . ."; break;;
+			[Nn]* ) echo "\033[1;31m	Exiting . . ."; exit 1;;
+		esac
+	done
+}
+
+echo -e "\033[1;34m	Adding options to DNF config . . .\033[0;35m"
 echo "max_parallel_downloads=3
 defaultyes=True
 keepcache=True" | sudo tee -a /etc/dnf/dnf.conf >> /dev/null
+echo -e "\033[1;32m	Done.\033[0;35m"
 
-echo "Moving bash history file (maybe) . . ."
-mkdir ~/.cache/{zsh,bash}
-echo "HISTFILE=~/.cache/bash/history" >> .bashrc
-[ -f "$HOME/.bash_history" ] && mv ~/.bash_history ~/.cache/bash/history
+echo -e "\033[1;34m	Moving bash stuff out of my \$HOME . . .\033[0;35m"
+retry_command mkdir ~/.cache/{zsh,bash}
+if [ -f "$HOME/.bash_history" ] ; then
+	echo -e "\033[1;34m	Moving .bash_history . . .\033[0;35m"
+	mv ~/.bash_history ~/.cache/bash/history
+	echo -e "\033[1;32m	Done.\033[0;35m"
+else echo -e "\033[1;36m	.bash_history not found at home, skipping . . .\033[0;35m" ; fi
+retry_command mkdir ~/.config/bash
+if [ -f "$HOME/.bashrc" ] ; then
+	echo -e "\033[1;34m	Moving .bashrc . . .\033[0;35m"
+	mv ~/.bashrc ~/.config/bash/
+	echo -e "\033[1;32m	Done.\033[-;35m"
+else echo -e "\033[1;36m	.bashrc not found at home, skipping . . .\033[0;35m" ; fi
 
-echo "Updating and Installing some packages . . ."
-sudo dnf update -y
-sudo dnf install fd-find lsd gh util-linux-user cowsay fortune-mod zsh neovim wl-clipboard gnome-tweaks -y
+echo -e "\033[1;34m	Updating . . .\033[0;35m"
+retry_command sudo dnf update -y
+echo -e "\033[1;34m	Installing useful stuff . . .\033[0;35m"
+retry_command sudo dnf install fd-find lsd gh util-linux-user cowsay fortune-mod zsh neovim wl-clipboard gnome-tweaks -y
 
-echo "Adding RPM Fusion . . ."
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
-sudo dnf groupupdate core -y
-sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
-sudo dnf groupupdate sound-and-video -y
+echo -e "\033[1;34m	Adding RPM Fusion . . .\033[0;35m"
+retry_command sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+retry_command sudo dnf groupupdate core -y
+retry_command sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
+retry_command sudo dnf groupupdate sound-and-video -y
+echo "\033[1;34m	Installing libva-intel-driver . . .\033[0;35m"
+retry_command sudo dnf install libva-intel-driver -y
 
-echo "Adding real Flathub . . ."
-flatpak remote-delete flathub
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+echo "\033[1;34m	Adding real Flathub . . .\033[0;35m"
+retry_command sudo flatpak remote-delete flathub
+retry_command sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-echo "Installing Flatpaks . . ."
-flatpak install com.mattjakeman.ExtensionManager org.prismlauncher.PrismLauncher
+echo "\033[1;34m	Installing Flatpaks . . .\033[0;35m"
+retry_command flatpak install com.mattjakeman.ExtensionManager org.prismlauncher.PrismLauncher
 
-echo "Adding a calcastor/gnome-patched COPR repo for dynamic buffering . . ."
-sudo dnf copr enable calcastor/gnome-patched
-sudo dnf update
+echo "\033[1;34m	Adding a calcastor/gnome-patched COPR repo for dynamic buffering . . .\033[0;35m"
+retry_command sudo dnf copr enable calcastor/gnome-patched
+retry_command sudo dnf update
 
-echo "Installing adw-gtk3 . . ."
-sudo dnf copr enable nickavem/adw-gtk3
-sudo dnf install adw-gtk3
+echo "\033[1;34m	Installing adw-gtk3 . . .\033[0;35m"
+retry_command sudo dnf copr enable nickavem/adw-gtk3
+retry_command sudo dnf install adw-gtk3
 
-echo "Cloning ZSH plugins . . ."
-mkdir -p ~/.config/zsh
-git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.config/zsh/plugins/fast-syntax-highlighting
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k
-git clone https://github.com/zsh-users/zsh-history-substring-search ~/.config/zsh/plugins/zsh-history-substring-search
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
-git clone https://github.com/Aloxaf/fzf-tab ~/.config/zsh/plugins/fzf-tab
-git clone https://github.com/zsh-users/zsh-completions ~/.config/zsh/plugins/zsh-completions
+echo "\033[1;34m	Cloning ZSH plugins . . .\033[0;35m"
+retry_command mkdir -p ~/.config/zsh
+retry_command git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.config/zsh/plugins/fast-syntax-highlighting
+retry_command git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k
+retry_command git clone https://github.com/zsh-users/zsh-history-substring-search ~/.config/zsh/plugins/zsh-history-substring-search
+retry_command git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
+retry_command git clone https://github.com/Aloxaf/fzf-tab ~/.config/zsh/plugins/fzf-tab
+retry_command git clone https://github.com/zsh-users/zsh-completions ~/.config/zsh/plugins/zsh-completions
 
-echo "Installing fzf with git . . ."
-mkdir -p ~/.config/fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/zsh/plugins/fzf
-~/.config/zsh/plugins/fzf/install --xdg --key-bindings --completion --no-update-rc
+echo "\033[1;34m	Installing fzf with git . . .\033[0;35m"
+retry_command mkdir -p ~/.config/fzf
+retry_command git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/zsh/plugins/fzf
+retry_command ~/.config/zsh/plugins/fzf/install --xdg --key-bindings --completion --no-update-rc
 
-echo "Adding dotfiles . . ."
-mkdir -p ~/.config/git
+echo "\033[1;34m	Adding dotfiles . . .\033[0;35m"
+retry_command mkdir -p ~/.config/git
 echo ".dotfiles" >> ~/.config/git/ignore
-git clone --bare https://github.com/blentar/dotfiles .dotfiles
-git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" checkout
-git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" config --local status.showUntrackedFiles no
+retry_command git clone --bare https://github.com/blentar/dotfiles .dotfiles
+retry_command git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" checkout
+retry_command git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" config --local status.showUntrackedFiles no
 
-git config --global user.name "blentar"
-git config --global user.email "dilan@sus"
-mv ~/.gitconfig $XDG_CONFIG_HOME/git/config 
+retry_command git config --global user.name "blentar"
+retry_command git config --global user.email "dilan@sus"
+retry_command mv ~/.gitconfig $XDG_CONFIG_HOME/git/config 
 
-chsh -s /bin/zsh
+retry_command chsh -s /bin/zsh

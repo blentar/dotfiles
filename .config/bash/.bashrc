@@ -6,7 +6,7 @@ HISTSIZE=10000 # Sets the size of the history file to 10,000.
 HISTFILE=~/.cache/bash/history # Changes the history file location.
 
 # Bash prompt.
-export PS1="\e[0;32m[\e[0;33m\u\e[0;34m@\e[0;36m\h \e[0;35m\W\e[0;32m]\e[m$ "
+export PS1="\e[1;32m[\e[1;33m\u\e[1;34m@\e[1;36m\h \e[1;35m\W\e[1;32m]\e[m$ "
 
 # My aliases
 alias tree='tree -a -I .git'

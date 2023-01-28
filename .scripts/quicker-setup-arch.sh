@@ -34,9 +34,14 @@ mkdir ~/.cache/{zsh,bash}
 echo "HISTFILE=~/.cache/bash/history" >> .bashrc
 [ -f "$HOME/.bash_history" ] && mv ~/.bash_history ~/.cache/bash/history
 
+echo "Moving bashrc and bash_profile out of the way . . ."
+mkdir -p ~/.config/bash_bak/
+[ -f "$HOME/.bashrc" ] && mv ~/.bashrc ~/.config/bash_bak/
+[ -f "$HOME/.bash_profile" ] && mv ~/.bash_profile ~/.config/bash_bak/
+
 echo "Updating and Installing some packages . . ."
 pacman -Syu --no-confirm
-pacman -S --needed --no-confirm lsd fzf cowsay fortune-mod git github-cli flatpak zsh neovim wl-clipboard gnome-tweaks base-devel
+pacman -S --needed --no-confirm lsd fd git github-cli flatpak zsh neovim wl-clipboard gnome-tweaks base-devel
 
 echo "Installing Flatpaks . . ."
 flatpak install com.mattjakeman.ExtensionManager com.raggesilver.BlackBox org.prismlauncher.PrismLauncher

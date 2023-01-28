@@ -4,32 +4,16 @@
 
 # bash -c "$(wget -qO https://raw.githubusercontent.com/blentar/dotfiles/master/.scripts/quicker-setup-termux.sh"
 
-echo "Moving bash history file (maybe) . . ."
-mkdir ~/.cache/{zsh,bash}
-[ -f "$HOME/.bash_history" ] && mv ~/.bash_history ~/.cache/bash/history
-echo "Moving bashrc/bash_profile out of the way . . ."
+echo "Setting up storage . . ."
+if termux-setup-storage ; then echo "Done." ; else echo "Failed." ; fi
+
+echo "Moving bash stuff out of my home . . ."
 mkdir .config/bash_bak
 [ -f "$HOME/.bashrc" ] && mv ~/.bashrc ~/.config/bash/
 [ -f "$HOME/.bash_profile" ] && mv ~/.bash_profile ~/.config/bash/
 
 echo "Updating and Installing some packages . . ."
-sudo dnf update -y
-sudo dnf install fd-find lsd gh util-linux-user cowsay fortune-mod zsh neovim wl-clipboard gnome-tweaks -y
-
-echo "Adding real Flathub . . ."
-flatpak remote-delete flathub
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-echo "Installing Flatpaks . . ."
-flatpak install com.mattjakeman.ExtensionManager org.prismlauncher.PrismLauncher
-
-echo "Adding a calcastor/gnome-patched COPR repo for dynamic buffering . . ."
-sudo dnf copr enable calcastor/gnome-patched
-sudo dnf update
-
-echo "Installing adw-gtk3 . . ."
-sudo dnf copr enable nickavem/adw-gtk3
-sudo dnf install adw-gtk3
+if pkg update ; then echo "Done." ; else echo "Failed." ; fi
 
 echo "Cloning ZSH plugins . . ."
 mkdir -p ~/.config/zsh
