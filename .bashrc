@@ -16,3 +16,5 @@ alias x='exit'
 alias vim='nvim'
 alias wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts""
 alias ls='ls --color=auto'
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
