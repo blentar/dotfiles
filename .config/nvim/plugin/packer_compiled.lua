@@ -99,11 +99,6 @@ _G.packer_plugins = {
     path = "/home/dilan/.local/share/nvim/site/pack/packer/start/fidget.nvim",
     url = "https://github.com/j-hui/fidget.nvim"
   },
-  ["github-nvim-theme"] = {
-    loaded = true,
-    path = "/home/dilan/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
-    url = "https://github.com/projekt0n/github-nvim-theme"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/dilan/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",

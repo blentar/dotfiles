@@ -1,0 +1,1 @@
+/home/dilan/.config/zsh/fzf/shell/key-bindings.fish
