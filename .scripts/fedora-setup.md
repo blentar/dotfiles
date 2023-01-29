@@ -55,4 +55,56 @@ sudo dnf update
 Clone these ZSH plugins, make the directory first.
 ```
 mkdir -p ~/.config/zsh/
-git clone
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.config/zsh/fast-syntax-highlighting
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/zsh/powerlevel10k
+git clone https://github.com/zsh-users/zsh-history-substring-search ~/.config/zsh/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-completions ~/.config/zsh/zsh-completions
+```
+Install fzf, remember to not update configuration.
+```
+mkdir -p ~/.config/fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/fzf/fzf
+~/.config/fzf/fzf/install --xdg --key-bindings --completion --no-update-rc
+```
+Now move the default .bashrc so it isn't in the way of the dotfiles.
+```
+mkdir ~/.cache/bash
+mkdir ~/.cache/zsh
+mkdir ~/.config/bash_bak
+mv .bashrc .config/bash_bak/
+mv .bash_profile .config/bash_bak/
+rm .bash_logout
+rm .bash_history
+```
+Get the dotfiles.
+```
+mkdir -p ~/.config/git
+echo "~/.dotfiles" >> ~/.config/git/ignore
+git clone --bare https://github.com/blentar/dotfiles .dotfiles
+git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" checkout
+git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" config --local status.showUntrackeFiles no
+```
+Additional git config.
+```
+git config --global user.name "blentar"
+git config --global user.email "dilan@dilan"
+mv ~/.gitconfig ~/.config/git/config
+```
+Change login shell to ZSH
+```
+chsh -s /usr/bin/zsh
+```
+Now copy ~/.config/2560x1440.bin into /lib/firmware/edid/
+```
+sudo mkdir /lib/firmware/edid
+sudo cp ~/.config/2560x1440.bin /lib/firmware/edid/
+```
+Add this line into /etc/default/grub.
+```
+GRUB_CMDLINE_LINUX_DEFAULT="drm.edid_firmware=edid/2560x1440.bin"
+```
+Update grub config.
+```
+grub2-mkconfig -o /etc/grub2.cfg
+```
