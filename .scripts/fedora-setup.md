@@ -1,4 +1,5 @@
 # Instructions for myself, with commands to copy and paste.
+## These instructions should not be followed by anyone other than myself, especially the last few commands, they are specific to my setup, and most my dotfiles aren't any good either.
 
 You probably already did it but in case, change the hostname cause fedora doesn't do it.
 ```
@@ -108,3 +109,13 @@ Update grub config.
 ```
 grub2-mkconfig -o /etc/grub2.cfg
 ```
+Download FiraCode Nerd Font.
+```
+mkdir ~/.local/share/fonts/FiraCode -p
+mkdir ~/Downloads/FiraCode
+cd ~/Downloads/FiraCode
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip
+unzip FiraCode.zip
+mv *.ttf ~/.local/share/fonts/FiraCode
+```
+## Now restart.
