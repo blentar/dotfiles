@@ -116,6 +116,6 @@ mkdir ~/Downloads/FiraCode
 cd ~/Downloads/FiraCode
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip
 unzip FiraCode.zip
-mv *.ttf ~/.local/share/fonts/FiraCode
+mv *.ttf ~/.local/share/fonts/FiraCode/
 ```
 ## Now restart.
