@@ -1,5 +1,6 @@
 # Instructions for myself, with commands to copy and paste.
 ## These instructions should not be followed by anyone other than myself, especially the last few commands, they are specific to my setup, and most my dotfiles aren't any good either.
+### Also not actually a script, but couldn't think of another place to put this.
 
 You probably already did it but in case, change the hostname cause fedora doesn't do it.
 ```
