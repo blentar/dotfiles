@@ -1,3 +1,3 @@
 require("blentar/plugins")
 require("blentar/plugin_config")
-require("blentar/keymaps")
+require("blentar/settings")
