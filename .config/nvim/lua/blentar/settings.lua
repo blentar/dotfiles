@@ -10,3 +10,4 @@ vim.o.laststatus = 2
 vim.o.autowrite = true
 vim.o.cursorline = true
 vim.o.autoread = true
+vim.api.nvim_set_option("clipboard","unammed")
