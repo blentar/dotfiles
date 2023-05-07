@@ -27,6 +27,7 @@ alias vim='nvim'
 alias wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts""
 alias ls='lsd -Av --group-directories-first'
 alias ll='lsd -Avl --group-directories-first'
+alias ani='/home/dilan/Git/ani-cli/ani-cli'
 
 # Options:
 unsetopt menu_complete
