@@ -1,8 +1,7 @@
 # ZPROFILE
 
 export EDITOR="nvim"
-export PATH="$PATH:/home/dilan/.local/bin:/home/dilan/Git/aseprite/deps/depot_tools"
-source "/home/dilan/Git/aseprite/deps/skia/third_party/externals/emsdk/emsdk_env.sh"
+export PATH="$PATH:/home/dilan/.local/bin"
 export MOZ_ENABLE_WAYLAND=1 firefox
 
 # Set auto-notify expiry to 3 seconds.
