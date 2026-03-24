@@ -1,6 +1,7 @@
 # My ZSHRC.
 
 stty stop undef # Disable ctrl-s to freeze terminal
+fastfetch
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -28,6 +29,8 @@ alias wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts""
 alias ls='lsd -Av --group-directories-first'
 alias ll='lsd -Avl --group-directories-first'
 alias ani='/home/dilan/Git/ani-cli/ani-cli'
+alias ff='fastfetch'
+alias mu='termusic'
 
 # Options:
 unsetopt menu_complete
@@ -80,3 +83,4 @@ source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ${ZDOTDIR:-~}/.p10k.zsh ]] || source ${ZDOTDIR:-~}/.p10k.zsh
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
+
