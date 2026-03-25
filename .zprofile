@@ -8,7 +8,7 @@ export MOZ_ENABLE_WAYLAND=1 firefox
 export AUTO_NOTIFY_EXPIRE_TIME=3000
 
 if [[ $XDG_SESSION_DESKTOP != "KDE" ]]; then
-	export QT_QPA_PLATFORMTHEME="qt5ct"
+	export QT_QPA_PLATFORMTHEME="qt6ct"
 fi
 
 # Clean-up
