@@ -30,7 +30,7 @@ alias ls='lsd -Av --group-directories-first'
 alias ll='lsd -Avl --group-directories-first'
 alias ani='/home/dilan/Git/ani-cli/ani-cli'
 alias ff='fastfetch'
-alias mu='termusic'
+alias m='waves'
 
 # Options:
 unsetopt menu_complete
