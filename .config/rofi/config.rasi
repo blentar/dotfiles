@@ -119,7 +119,8 @@ scrollbar {
     padding:      0;
     handle-width: 8px ;
     border:       0;
-    handle-color: @normal-foreground;
+    handle-color: @sky;
+    border-radius: 10px;
 }
 sidebar {
     border-color: @separatorcolor;
@@ -136,11 +137,11 @@ button selected {
 }
 num-filtered-rows {
     expand:     false;
-    text-color: Gray;
+    text-color: @subtext0;
 }
 num-rows {
     expand:     false;
-    text-color: Gray;
+    text-color: @subtext0;
 }
 textbox-num-sep {
     expand:     false;
@@ -161,7 +162,7 @@ entry {
     text-color:        @normal-foreground;
     cursor:            text;
     spacing:           0;
-    placeholder-color: Gray;
+    placeholder-color: @subtext0;
     placeholder:       "Type to filter";
 }
 prompt {
@@ -173,4 +174,8 @@ textbox-prompt-colon {
     expand:     false;
     str:        ":";
     text-color: inherit;
+}
+
+configuration {
+    show-icons: true;
 }
