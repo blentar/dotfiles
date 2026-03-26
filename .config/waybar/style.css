@@ -9,7 +9,6 @@
 #waybar {
   background: transparent;
   color: @text;
-  margin: 5px 5px;
 }
 
 #workspaces {
@@ -17,7 +16,8 @@
   margin: 5px;
   opacity: 0.75;
   background-color: @base;
-  margin-left: 1rem;
+  margin-left: 5px;
+  border: 2px @sky;
 }
 
 #workspaces button {
@@ -29,6 +29,8 @@
 #workspaces button.active {
   color: @sky;
   border-radius: 1rem;
+  border-width: 2px;
+  border-color: @sky;
 }
 
 #workspaces button:hover {
@@ -53,7 +55,7 @@
 #clock {
   color: @blue;
   border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   background-color: @base;
   opacity: 0.75;
 }
@@ -95,12 +97,12 @@
 }
 
 #custom-power {
-    margin-right: 1rem;
+    margin-right: 5px;
     border-radius: 0px 1rem 1rem 0px;
     color: @red;
 }
 
 #tray {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   border-radius: 1rem;
 }
