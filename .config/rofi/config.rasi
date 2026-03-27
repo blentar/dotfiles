@@ -177,5 +177,6 @@ textbox-prompt-colon {
 }
 
 configuration {
+    font: "JetBrainsMono Nerd Font 12";
     show-icons: true;
 }
