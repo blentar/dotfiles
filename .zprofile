@@ -3,6 +3,7 @@
 export EDITOR="nvim"
 export PATH="$PATH:/home/dilan/.local/bin"
 export MOZ_ENABLE_WAYLAND=1 firefox
+export BROWSER="zen-browser"
 
 # Set auto-notify expiry to 3 seconds.
 export AUTO_NOTIFY_EXPIRE_TIME=3000
