@@ -33,6 +33,8 @@ alias ff='fastfetch'
 alias m='jellyfin-tui'
 alias mm='waves'
 
+export DISPLAY=:0
+
 # Options:
 unsetopt menu_complete
 unsetopt flowcontrol
