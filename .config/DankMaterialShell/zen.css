@@ -1,0 +1,123 @@
+/* DMS Matugen Zen Browser Theme */
+:root {
+  --zen-primary-color: #7a3f69 !important;
+  --toolbarbutton-icon-fill: #f5c2e7 !important;
+  --toolbar-field-color: #cdd6f4 !important;
+  --tab-selected-textcolor: #f5c2e7 !important;
+  --toolbar-color: #cdd6f4 !important;
+  --arrowpanel-color: #cdd6f4 !important;
+  --arrowpanel-background: #1e1e2e !important;
+  --sidebar-text-color: #cdd6f4 !important;
+  --zen-main-browser-background: #1e1e2e !important;
+  --zen-main-browser-background-toolbar: #1e1e2e !important;
+}
+
+#zen-browser-background {
+  --zen-main-browser-background: #1e1e2e !important;
+  --zen-background-opacity: 1 !important;
+}
+
+#zen-toolbar-background {
+  --zen-main-browser-background-toolbar: #1e1e2e !important;
+  --zen-background-opacity: 1 !important;
+}
+
+.sidebar-placesTree {
+  background-color: #1e1e2e !important;
+}
+
+#zen-workspaces-button {
+  background-color: #1e1e2e !important;
+}
+
+#TabsToolbar {
+  background-color: #1e1e2e !important;
+}
+
+.urlbar-background {
+  background-color: #1e1e2e !important;
+}
+
+.urlbar-input::selection {
+  color: #1e1e2e !important;
+  background-color: #f5c2e7 !important;
+}
+
+.urlbarView-url {
+  color: #a6adc8 !important;
+}
+
+toolbar .toolbarbutton-1 {
+  &:not([disabled]) {
+    &:is([open], [checked])
+      > :is(
+        .toolbarbutton-icon,
+        .toolbarbutton-text,
+        .toolbarbutton-badge-stack
+      ) {
+      fill: #f5c2e7
+    }
+  }
+}
+
+.identity-color-blue {
+  --identity-tab-color: #ffd1f2 !important;
+  --identity-icon-color: #ffd1f2 !important;
+}
+
+.identity-color-turquoise {
+  --identity-tab-color: #f5c2e7 !important;
+  --identity-icon-color: #f5c2e7 !important;
+}
+
+.identity-color-green {
+  --identity-tab-color: #bfffa5 !important;
+  --identity-icon-color: #bfffa5 !important;
+}
+
+.identity-color-yellow {
+  --identity-tab-color: #ffeba5 !important;
+  --identity-icon-color: #ffeba5 !important;
+}
+
+.identity-color-orange {
+  --identity-tab-color: #ffdf72 !important;
+  --identity-icon-color: #ffdf72 !important;
+}
+
+.identity-color-red {
+  --identity-tab-color: #ff9fa7 !important;
+  --identity-icon-color: #ff9fa7 !important;
+}
+
+.identity-color-pink {
+  --identity-tab-color: #ffd9f4 !important;
+  --identity-icon-color: #ffd9f4 !important;
+}
+
+.identity-color-purple {
+  --identity-tab-color: #714665 !important;
+  --identity-icon-color: #714665 !important;
+}
+
+#zen-appcontent-navbar-container {
+  background-color: #1e1e2e !important;
+}
+
+#PanelUI-menu-button .toolbarbutton-icon,
+#downloads-button .toolbarbutton-icon,
+#unified-extensions-button .toolbarbutton-icon {
+  fill: #f5c2e7 !important;
+  color: #f5c2e7 !important;
+}
+
+#PanelUI-menu-button .toolbarbutton-badge-stack,
+#downloads-button .toolbarbutton-badge-stack,
+#unified-extensions-button .toolbarbutton-badge-stack {
+  fill: #f5c2e7 !important;
+  color: #f5c2e7 !important;
+}
+
+toolbar .toolbarbutton-1 > .toolbarbutton-icon {
+  fill: #f5c2e7 !important;
+}

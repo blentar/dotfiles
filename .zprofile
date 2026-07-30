@@ -1,7 +1,7 @@
 # ZPROFILE
 
 export EDITOR="nvim"
-export PATH="$PATH:/home/dilan/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export MOZ_ENABLE_WAYLAND=1 firefox
 export BROWSER="zen-browser"
 export ELECTRON_OZONE_PLATFORM_HINT="auto"

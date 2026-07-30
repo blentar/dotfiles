@@ -3,7 +3,7 @@
   
   "logo": {
 	  "type": "kitty",
-	  "source": "~/.config/fastfetch/trixie.png",
+	  "source": "~/.config/fastfetch/trix.png",
 	  "width": 20,
 	  "height": 9,
 	  "padding": {
@@ -19,6 +19,7 @@
   },
   
   "modules": [
+	  "break",
 	  "break",
 	  "title",
 	  "os",

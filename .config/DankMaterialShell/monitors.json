@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "configurations": [
+    {
+      "id": "profile_1785206327830_s5skxvz",
+      "name": "1440",
+      "outputs": {
+        "DP-1": {
+          "mode": "1920x1080@119.930",
+          "position": {
+            "x": 1920,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "niri": {}
+        },
+        "HDMI-A-1": {
+          "mode": null,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": true,
+          "niri": {}
+        }
+      }
+    },
+    {
+      "id": "profile_1785206344453_lsm6qcw",
+      "name": "1080",
+      "outputs": {
+        "DP-1": {
+          "mode": "1920x1080@119.930",
+          "position": {
+            "x": 1920,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "niri": {}
+        },
+        "HDMI-A-1": {
+          "mode": null,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": true,
+          "niri": {}
+        }
+      }
+    },
+    {
+      "id": "auto_640dc5eb",
+      "name": "",
+      "outputs": {
+        "DP-1": {
+          "mode": "1920x1080@119.930",
+          "position": {
+            "x": 1920,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "niri": {}
+        },
+        "HDMI-A-1": {
+          "mode": null,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": true,
+          "niri": {}
+        }
+      }
+    }
+  ]
+}
