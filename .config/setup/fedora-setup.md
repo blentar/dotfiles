@@ -20,37 +20,35 @@ rpm fusion.
 ```
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
-Add AppStream metadata for RPM Fusion.
+rpmf appstream metadata
 ```
 sudo dnf groupupdate core
 ```
-Install multimedia codecs.
+codecs
 ```
 sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 ```
 ```
 sudo dnf groupupdate sound-and-video
 ```
-Install libva-intel-driver.
-```
-sudo dnf install libva-intel-driver
-```
-delete the filtered flathub remote.
+
+flathub
 ```
 flatpak remote-delete flathub
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
-Download the flathub.flatpakrepo file from [here](https://flatpak.org/setup/Fedora), then install flathub with GNOME Software. \ Then install these flatpaks.
 ```
 flatpak install com.mattjakeman.ExtensionManager org.prismlauncher.PrismLauncher com.raggesilver.BlackBox
 ```
-Add this copr repo and update.
+
+gnome thing
 ```
 sudo dnf copr enable calcastor/gnome-patched
 ```
 ```
 sudo dnf update
 ```
-Clone these ZSH plugins, make the directory first.
+zsh plugins to clone
 ```
 mkdir -p ~/.config/zsh/
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.config/zsh/fast-syntax-highlighting
@@ -59,13 +57,13 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ~/.config/zs
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions ~/.config/zsh/zsh-completions
 ```
-Install fzf, remember to not update configuration.
+fzf, dont update config
 ```
 mkdir -p ~/.config/fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/fzf/fzf
 ~/.config/fzf/fzf/install --xdg --key-bindings --completion --no-update-rc
 ```
-Now move the default .bashrc so it isn't in the way of the dotfiles.
+clear out the home a bit 
 ```
 mkdir ~/.cache/bash
 mkdir ~/.cache/zsh
@@ -75,7 +73,7 @@ mv .bash_profile .config/bash_bak/
 rm .bash_logout
 rm .bash_history
 ```
-Get the dotfiles.
+dotfiles
 ```
 mkdir -p ~/.config/git
 echo "~/.dotfiles" >> ~/.config/git/ignore
@@ -83,36 +81,16 @@ git clone --bare https://github.com/blentar/dotfiles .dotfiles
 git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" checkout
 git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME/" config --local status.showUntrackedFiles no
 ```
-Additional git config.
+git stuff
 ```
 git config --global user.name "blentar"
 git config --global user.email "batter@banter"
 mv ~/.gitconfig ~/.config/git/config
 ```
-Change login shell to ZSH
+change shell
 ```
 chsh -s /usr/bin/zsh
 ```
-Now copy ~/.config/2560x1440.bin into /lib/firmware/edid/
-```
-sudo mkdir /lib/firmware/edid
-sudo cp ~/.config/2560x1440.bin /lib/firmware/edid/
-```
-Add this line into /etc/default/grub.
-```
-GRUB_CMDLINE_LINUX_DEFAULT="drm.edid_firmware=edid/2560x1440.bin"
-```
-Update grub config.
-```
-grub2-mkconfig -o /etc/grub2.cfg
-```
-Download FiraCode Nerd Font.
-```
-mkdir ~/.local/share/fonts/FiraCode -p
-mkdir ~/Downloads/FiraCode
-cd ~/Downloads/FiraCode
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip
-unzip FiraCode.zip
-mv *.ttf ~/.local/share/fonts/FiraCode/
-```
-## restart
+download jetbrains nf or dont
+
+reboot
