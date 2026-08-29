@@ -28,10 +28,11 @@ alias vim='nvim'
 alias wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts""
 alias ls='lsd -Av --group-directories-first'
 alias ll='lsd -Avl --group-directories-first'
-alias ani='/home/dilan/Git/ani-cli/ani-cli'
 alias ff='fastfetch'
 alias m='jellyfin-tui'
 alias mm='waves'
+alias meow='wlr-randr --output DP-1 --mode 1920x1080@119.930000Hz'
+alias woof='wlr-randr --output DP-1 --mode 2560x1440@165.00000Hz'
 
 export DISPLAY=:0
 

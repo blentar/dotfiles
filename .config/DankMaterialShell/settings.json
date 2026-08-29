@@ -307,10 +307,10 @@
     }
   ],
   "networkPreference": "auto",
-  "iconThemeDark": "Adwaita",
+  "iconThemeDark": "Papirus-Dark",
   "iconThemeLight": "System Default",
   "iconThemePerMode": false,
-  "lastAppliedIconTheme": "Adwaita",
+  "lastAppliedIconTheme": "Papirus-Dark",
   "cursorSettings": {
     "theme": "fluttershy-xcursor",
     "size": 20,
@@ -361,7 +361,7 @@
   "soundPluggedIn": true,
   "muteSoundsWhenMediaPlaying": true,
   "acMonitorTimeout": 0,
-  "acLockTimeout": 0,
+  "acLockTimeout": 60,
   "acSuspendTimeout": 0,
   "acSuspendBehavior": 0,
   "acProfileName": "",
